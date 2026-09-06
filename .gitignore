@@ -53,3 +53,14 @@ dkms.conf
 
 # debug information files
 *.dwo
+# Pasta do editor
+.vscode/
+
+# Executáveis
+*.exe
+main
+biblioteca
+
+# Arquivos de compilação
+*.o
+*.obj
