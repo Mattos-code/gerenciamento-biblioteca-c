@@ -17,8 +17,14 @@ Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluin
 * **Desalocação Consciente:** Liberação adequada de memória com `free()` ao encerrar o sistema.
 
 ---
-
-## 🛠️ Como Executar o Projeto
+### 🟢 Parte 3 - Modularização e Correções (Concluída)
+* **Objetivo:** Melhorar a arquitetura do sistema, tornando o código mais organizado, legível e sustentável.
+* **Foco do Módulo:** Separação de responsabilidades em funções especializadas para cadastro, listagem, empréstimos, menu e gerenciamento de memória.
+* **Detalhes da Estrutura:** Organização do fluxo principal na função `main()`, uso de protótipos e passagem de parâmetros por referência e por valor.
+* **Incrementos:** Melhorias na estrutura do programa, padronização das operações e redução de redundâncias no código.
+* **Correções aplicadas:** Ajuste de protótipos, eliminação de chaves sobrando, correção de erros de sintaxe e resolução do typo `prinf` para `printf`.
+* **Validação:** O programa foi compilado com sucesso usando `gcc`, confirmando que a versão está estável e funcional.
+---
 
 1. Compilar o arquivo principal no terminal:
    ```bash
