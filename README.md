@@ -26,6 +26,13 @@ Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluin
 * **Validação:** O programa foi compilado com sucesso usando `gcc`, confirmando que a versão está estável e funcional.
 ---
 
-1. Compilar o arquivo principal no terminal:
+1. Compilar o programa no terminal:
    ```bash
-   gcc main.c -o biblioteca
+   gcc main.c biblioteca.c -o sistema_biblioteca
+   ```
+2. Executar:
+   ```bash
+   ./sistema_biblioteca
+   ```
+
+No VS Code, use **Ctrl+Shift+B** para compilar ou **F5** para compilar e iniciar a depuração.
