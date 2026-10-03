@@ -1,38 +1,45 @@
-# 📚 Sistema de Biblioteca em C
+# 📚 Sistema de Gerenciamento de Biblioteca em C — Versão 3 (Parte 3)
 
-Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluindo de estruturas de dados estáticas até a alocação dinâmica de memória e modularização de funcionalidades.
+Este repositório contém a evolução do **Sistema de Gerenciamento de Biblioteca** desenvolvido em C. O projeto transicionou de uma estrutura monolítica inicial para uma **arquitetura modularizada dividida em subpastas**, aplicando boas práticas de separação de responsabilidades (interface, definições de tipos e regras de negócio).
+
+---
+
+## 🔄 Evolução da Modelagem: Anterior vs. Atual (Versão 3)
+
+### 1. Estrutura de Arquivos e Subpastas
+* **Versão Anterior:** O projeto contava com código-fonte, definições de estruturas e funções centralizadas sem modularização por diretórios.
+* **Versão Atual (Parte 3):** O sistema foi refatorado e dividido estrategicamente nas subpastas `include/` e `src/`:
+
+├── include/
+│   └── biblioteca.h       # Protótipos das funções, constantes e structs
+├── src/
+│   ├── biblioteca.c       # Implementação das regras de negócio e validações
+│   └── main.c             # Ponto de entrada, menu interativo e alocação dinâmica
+└── README.md
+
+### 2. Quadro Comparativo das Implementações
+
+| Funcionalidade / Aspecto | Versões Anteriores | Versão 3 (Atual) |
+| :--- | :--- | :--- |
+| **Arquitetura** | Monolítica / Arquivo Único | Modularizada por subpastas (`include/` e `src/`) |
+| **Headers e Definições** | Inclusões diretas | Centralizado em `biblioteca.h` com *Include Guards* |
+| **Gerenciamento de Memória** | Alocação simples | Alocação dinâmica com `calloc`/`malloc` e desalocação com `liberarMemoria()` |
+| **Tratamento de Erros** | Validações básicas de entrada | Tratamento defensivo com `scanf`, limpeza de buffer e checagem de ponteiros (`NULL`) |
+| **Devolução de Livros** | Não disponível | Função `devolverLivro()` com reorganização dinâmica de vetores (*array shift*) |
 
 ---
 
-## 📌 Histórico de Desenvolvimento
+## 🛠️ Principais Destaques do Código (Parte 3)
 
-### 🔴 Parte 1 - Versão 1.0 (Concluída)
-* **Objetivo:** Implementar o cadastro e a listagem de livros usando arrays estáticos.
-* **Foco do Módulo:** Declaração de `structs`, manipulando entradas e saídas de dados no terminal e organização inicial do fluxo.
-* **Detalhes da Estrutura:** Criação de uma `struct` para armazenar informações do livro (nome, autor, editora e edição).
+### 1. Modularização e Header Guard (`biblioteca.h`)
+* Uso de `#ifndef BIBLIOTECA_H` para evitar redefinições em tempo de compilação.
+* Estruturas de dados unificadas: `struct Livros` e `struct Emprestimos`.
 
-### 🟡 Parte 2 - Incrementos e Memória (Concluída)
-* **Módulo de Empréstimos:** Implementação de funções para realizar e consultar empréstimos de livros por usuário.
-* **Gerenciamento Dinâmico de Memória:** Uso de ponteiros e alocação dinâmica com `malloc()` e `calloc()`.
-* **Desalocação Consciente:** Liberação adequada de memória com `free()` ao encerrar o sistema.
-
----
-### 🟢 Parte 3 - Modularização e Correções (Concluída)
-* **Objetivo:** Melhorar a arquitetura do sistema, tornando o código mais organizado, legível e sustentável.
-* **Foco do Módulo:** Separação de responsabilidades em funções especializadas para cadastro, listagem, empréstimos, menu e gerenciamento de memória.
-* **Detalhes da Estrutura:** Organização do fluxo principal na função `main()`, uso de protótipos e passagem de parâmetros por referência e por valor.
-* **Incrementos:** Melhorias na estrutura do programa, padronização das operações e redução de redundâncias no código.
-* **Correções aplicadas:** Ajuste de protótipos, eliminação de chaves sobrando, correção de erros de sintaxe e resolução do typo `prinf` para `printf`.
-* **Validação:** O programa foi compilado com sucesso usando `gcc`, confirmando que a versão está estável e funcional.
----
-
-1. Compilar o programa no terminal:
-   ```bash
-   gcc main.c biblioteca.c -o sistema_biblioteca
-   ```
-2. Executar:
-   ```bash
-   ./sistema_biblioteca
-   ```
-
-No VS Code, use **Ctrl+Shift+B** para compilar ou **F5** para compilar e iniciar a depuração.
+### 2. Tratamento Defensivo na Devolução (`devolverLivro`)
+* **Verificação de Ponteiros:** Previne erros de falha de segmentação (*Segmentation Fault*) checando se referências são nulas.
+* **Limpeza do Buffer:** Evita loops infinitos ao sanitizar entradas do usuário via `limparBufferEntrada()`.
+* **Reorganização de Array:** Ao devolver um livro, os registros posteriores no vetor são deslocados para preencher a lacuna:
+  ```c
+  for (int i = escolha; i < (*totalEmprestimos) - 1; i++) {
+      emprestimos[i] = emprestimos[i + 1];
+  }
