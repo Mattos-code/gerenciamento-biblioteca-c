@@ -1,4 +1,4 @@
-# 📚 Sistema de Gerenciamento de Biblioteca em C — Versão 3 (Parte 3)
+# 📚 Sistema de Gerenciamento de Biblioteca em C — Versão 3(Parte 3)
 
 Este repositório contém a evolução do **Sistema de Gerenciamento de Biblioteca** desenvolvido em C. O projeto transicionou de uma estrutura monolítica inicial para uma **arquitetura modularizada dividida em subpastas**, aplicando boas práticas de separação de responsabilidades (interface, definições de tipos e regras de negócio).
 
