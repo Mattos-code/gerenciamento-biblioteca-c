@@ -4,9 +4,9 @@ Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluin
 
 ---
 
-## 📌 Histórico e Evolução do Desenvolvimentos
+## 📌 Histórico e Evolução do Desenvolvimento
 
-### 🔴 Parte 1 - Versão Initial 1.0 (Concluída)
+### 🔴 Parte 1 - Versão Inicial 1.0 (Concluída)
 * **Objetivo:** Criar a estrutura base do sistema usando registros e entradas simples.
 * **Mapeamento:** Implementação de cadastro e listagem de livros.
 * **Estrutura:** Uso de `struct` para dados do livro (nome, autor, editora, edição) e manipulação básica de entrada/saída no terminal via array estático.
@@ -30,7 +30,7 @@ Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluin
 
 ---
 
-## 🔄 Quadro Comparativo: Versão Anterior vs. Versão 3
+## 🔄 Quadro Comparativo: Versões Anteriores vs. Versão 3
 
 | Funcionalidade / Aspecto | Versões Anteriores (1 e 2) | Versão 3 (Atual) |
 | :--- | :--- | :--- |
@@ -51,9 +51,8 @@ Projeto desenvolvido para aplicar conceitos fundamentais da linguagem C, evoluin
 ├── src/
 │   ├── biblioteca.c    # Implementação das regras de negócio e validações
 │   └── main.c          # Ponto de entrada, menu interativo e gestão de memória
-└── README.md[i + 1];
-  }
----
+└── README.md
+
 📌 Funcionalidades do Menu
 Cadastrar Livro: Leitura cadastral com controle de capacidade (MAX_LIVROS).
 
@@ -61,17 +60,14 @@ Listar Livros: Exibição do acervo com status de disponibilidade (Disponível /
 
 Realizar Empréstimo: Vinculação de usuário ao livro com atualização de status.
 
-Listar Emprestimos: Exibição detalhada das transações ativas.
+Listar Empréstimos: Exibição detalhada das transações ativas.
 
 Devolver Livro (NOVO): Encerramento do empréstimo, liberação do livro e reorganização do vetor (array shift).
 
 Sair: Encerramento seguro da aplicação com liberação da memória dinâmica.
 
----
-
-
 🚀 Compilação e Execução
-1. Compilação via Terminal (gcc)
+Compilação via Terminal (gcc)
 Como o projeto agora está dividido entre include/ e src/, informe o diretório de cabeçalho com a flag -I:
 
 Bash
@@ -83,4 +79,5 @@ gcc -Iinclude src/main.c src/biblioteca.c -o biblioteca_app
 
 # Executar no Windows
 .\biblioteca_app.exe
-  
+
+---
