@@ -68,6 +68,8 @@ Devolver Livro (NOVO): Encerramento do empréstimo, liberação do livro e reorg
 Sair: Encerramento seguro da aplicação com liberação da memória dinâmica.
 
 ---
+
+
 🚀 Compilação e Execução
 1. Compilação via Terminal (gcc)
 Como o projeto agora está dividido entre include/ e src/, informe o diretório de cabeçalho com a flag -I:
