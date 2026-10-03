@@ -28,6 +28,35 @@ Este repositório contém a evolução do **Sistema de Gerenciamento de Bibliote
 | **Devolução de Livros** | Não disponível | Função `devolverLivro()` com reorganização dinâmica de vetores (*array shift*) |
 
 ---
+🚀 Compilação e Execução
+Pré-requisitos
+Compilador GCC instalado.
+
+Comando de Compilação
+Para compilar o projeto considerando as subpastas include/ e src/, execute na raiz do diretório:
+
+Bash
+# Compilação unificando as subpastas
+gcc -Iinclude src/main.c src/biblioteca.c -o biblioteca_app
+
+# Executar no Linux / macOS
+./biblioteca_app
+
+# Executar no Windows
+.\biblioteca_app.exe
+📌 Funcionalidades do Menu
+Cadastrar Livro: Leitura de dados cadastrais com tratamento de estouro de capacidade (MAX_LIVROS).
+
+Listar Livros: Exibição do acervo com status de disponibilidade (Disponível / Emprestado).
+
+Realizar Empréstimo: Associação de usuário a livro com alteração de status.
+
+Listar Empréstimos: Exibição detalhada de transações ativas.
+
+Devolver Livro (NOVO): Baixa no empréstimo, alteração de status do livro e ajuste no vetor.
+
+Sair: Desalocação segura da memória dinâmica alocada via free().
+---
 
 ## 🛠️ Principais Destaques do Código (Parte 3)
 
